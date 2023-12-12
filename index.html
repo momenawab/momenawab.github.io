@@ -381,8 +381,31 @@
                 <div class="sent-message">Your message has been sent. Thank you! <br>
                 For Faster Contact us on Email or Whatsapp</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+               <div class="text-center">
+            <button type="submit"  onclick="sendToWhatsApp()">Send Message</button>
+        </div>
             </form>
+            <script>
+function sendToWhatsApp() {
+    // Get input values
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("subject").value;
+    var course = document.getElementById("message").value;
+
+    // Format the input values into a single line
+    var message = "Name: " + name + 
+                  " - Email: " + email +
+                  " - Task: " + subject +
+                  " - Info: " + message;
+
+    // Construct the WhatsApp API link
+    var whatsappLink = "https://api.whatsapp.com/send?phone=+96599126060&text=" + encodeURIComponent(message);
+
+    // Redirect to WhatsApp
+    window.location.href = whatsappLink;
+}
+</script>
           </div>
 
         </div>
